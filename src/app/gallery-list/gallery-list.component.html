@@ -1,0 +1,25 @@
+<div class="container mt-4">
+  <div class="gallery">
+    <div class="art-tile" *ngFor="let artwork of artworks" (click)="openDetails(artwork)">
+      <div class="d-flex">
+        <img [src]="artwork.published_image.iiifthumburl" alt="{{ artwork.title }}">
+      </div>
+      <div class="image-info d-flex justify-content-center">
+        <span>{{artwork.object.title}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p-sidebar [(visible)]="sidebarVisible" position="right" styleClass="w-30rem" (onHide)="closeDetails()">
+  <div *ngIf="selectedArtwork">
+    <img [src]="selectedArtwork.imageUrl" alt="{{ selectedArtwork.title }}" class="full-image frame mb-3">
+    <h2>{{ selectedArtwork.title }}</h2>
+    <hr>
+    <p><strong>Artist:</strong> {{ selectedArtwork.artist }}</p>
+    <hr>
+    <p>{{ selectedArtwork.overview }}</p>
+    <hr>
+    <p><strong>Release date</strong> {{selectedArtwork.releaseDate | date}} </p>
+  </div>
+</p-sidebar>

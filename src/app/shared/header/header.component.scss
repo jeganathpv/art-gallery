@@ -1,0 +1,16 @@
+.navbar {
+    margin-bottom: 20px;
+  }
+  .navbar-brand img {
+    margin-right: 10px;
+  }
+  
+  .nav-link {
+    font-size: 2rem;
+  }
+
+  @media (min-width: 992px) {
+    .navbar-expand-lg .navbar-collapse {
+        justify-content: flex-end;
+    }
+}

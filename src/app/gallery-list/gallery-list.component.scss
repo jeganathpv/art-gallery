@@ -1,0 +1,107 @@
+::ng-deep p-sidebar {
+    .w-30rem {
+        width: 50vw !important;
+    }
+    .p-sidebar .p-sidebar-content {
+        padding: 1.25rem;
+    }
+    .full-image {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+      }
+    .frame{
+        border: 30px solid orange;
+      border-image:
+       url("https://img00.deviantart.net/feb2/i/2008/309/e/5/border_lineart_8_by_inspyretash_stock.jpg")
+           100 /                    /* slice */
+           20px 18px 18px 20px /    /* width */
+           18px 14px 9px 10px       /* outset */
+           round;    
+     }
+
+    @media (max-width: 768px) {
+        .w-30rem {
+            width: 100vw !important;
+        }
+    }
+    @media (max-width: 576px) {
+        .w-30rem {
+            width: 100vw !important;
+        }
+    }
+    @media (min-width: 1024px) {
+        .w-30rem {
+            width: 70vw !important;
+        }
+    }
+}
+
+/* src/app/gallery-list/gallery-list.component.scss */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .art-tile {
+    width: 360px;
+    margin: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 8px solid #fff;
+    border-radius: 10px;
+    background: #f9f9f9;
+    overflow: hidden;
+  
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+  
+    img {
+      width: 100%;
+      display: block;
+    }
+  
+    h3, p {
+      margin: 10px;
+      text-align: center;
+    }
+  
+    h3 {
+      font-size: 1.2em;
+      color: #333;
+    }
+  
+    p {
+      font-size: 1em;
+      color: #666;
+    }
+  }
+  
+  
+  
+
+  @media (min-width: 768px) {
+    .gallery {
+      justify-content: space-between;
+    }
+  
+    .art-tile {
+      flex: 1 1 45%; // Two tiles per row
+      margin: 15px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .gallery {
+      justify-content: space-around;
+    }
+  
+    .art-tile {
+      flex: 1 1 30%; // Three tiles per row
+      margin: 20px;
+    }
+  }
