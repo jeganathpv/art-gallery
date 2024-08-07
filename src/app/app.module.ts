@@ -12,6 +12,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { ApiArtService } from './api-art.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SidebarModule } from 'primeng/sidebar';
+import { NgxMasonryModule } from 'ngx-masonry';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SidebarModule } from 'primeng/sidebar';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    SidebarModule
+    SidebarModule,
+    NgxMasonryModule
   ],
   providers: [
     ApiArtService

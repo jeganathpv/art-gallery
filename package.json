@@ -24,6 +24,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "bootstrap": "^5.2.3",
     "ngx-bootstrap": "^11.0.2",
+    "ngx-masonry": "^14.0.1",
     "primeng": "^16.9.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
