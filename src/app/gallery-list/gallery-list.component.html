@@ -12,8 +12,9 @@
 </div> -->
 
 <div class="container mt-4">
+  <button pButton type="button" label="Filter Artworks" icon="pi pi-filter" class="mb-4" (click)="openFilterModal()"></button>
   <ngx-masonry>
-    <div ngxMasonryItem *ngFor="let artwork of artworks" (click)="openDetails(artwork)">
+    <div ngxMasonryItem *ngFor="let artwork of filteredArtworks" (click)="openDetails(artwork)">
       <div class="art-tile">
         <img [src]="artwork.published_image.iiifthumburl" alt="{{ artwork.title }}">
         <div class="image-info d-flex justify-content-center">
@@ -22,6 +23,7 @@
       </div>
     </div>
   </ngx-masonry>
+  <app-filter-modal (filtersApplied)="applyFilters($event)"></app-filter-modal>
 </div>
 
 <p-sidebar [(visible)]="sidebarVisible" position="right" styleClass="w-30rem" (onHide)="closeDetails()">

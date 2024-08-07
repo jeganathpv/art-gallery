@@ -1,0 +1,23 @@
+<p-dialog header="Filter Artworks" [(visible)]="display" [modal]="true" [responsive]="true"  [maximizable]="true">
+    <form [formGroup]="filterForm" (ngSubmit)="applyFilters()">
+      <div class="row mb-1">
+        <label class="col-3" for="title">Title</label>
+        <input class="col" id="title" type="text" formControlName="title" pInputText>
+      </div>
+      <div class="row mb-1">
+        <label class="col-3" for="artist">Artist</label>
+        <input class="col" id="artist" type="text" formControlName="artist" pInputText>
+      </div>
+      <div class="row mb-1">
+        <label class="col-3" for="classification">Classification</label>
+        <input class="col" id="classification" type="text" formControlName="classification" pInputText>
+      </div>
+      <div class="row mb-1">
+        <label class="col-3" for="yearRange">Year Range</label>
+        <input class="col" id="yearRange" type="text" formControlName="yearRange" pInputText>
+        <small class="p-d-block">Use format: YYYY-YYYY (e.g., 1930-1940)</small>
+      </div>
+      <button type="submit" pButton label="Apply Filters" icon="pi pi-check"></button>
+    </form>
+  </p-dialog>
+  

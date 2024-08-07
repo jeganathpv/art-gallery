@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 // import { IArtInfo } from '../models';
 import { ApiArtService } from '../api-art.service';
 import { IArtInfo } from '../models';
+import { FilterModalComponent } from '../filter-modal/filter-modal.component';
 
 @Component({
   selector: 'app-gallery-list',
@@ -9,147 +10,19 @@ import { IArtInfo } from '../models';
   styleUrls: ['./gallery-list.component.scss'],
 })
 export class GalleryListComponent {
-  // readonly artworks: IArtInfo[] =[
-  //   {
-  //     id: "1",
-  //     imageUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     thumbnailUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     title: "Starry Night",
-  //     artist: "Vincent van Gogh",
-  //     overview: "A swirling depiction of the night sky over a quiet town.",
-  //     releaseDate: new Date(1889, 6, 1)
-  //   },
-  //   {
-  //     id: "1",
-  //     imageUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     thumbnailUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     title: "Starry Night",
-  //     artist: "Vincent van Gogh",
-  //     overview: "A swirling depiction of the night sky over a quiet town.",
-  //     releaseDate: new Date(1889, 6, 1)
-  //   },
-  //   {
-  //     id: "1",
-  //     imageUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     thumbnailUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     title: "Starry Night",
-  //     artist: "Vincent van Gogh",
-  //     overview: "A swirling depiction of the night sky over a quiet town.",
-  //     releaseDate: new Date(1889, 6, 1)
-  //   },
-  //   {
-  //     id: "1",
-  //     imageUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     thumbnailUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     title: "Starry Night",
-  //     artist: "Vincent van Gogh",
-  //     overview: "A swirling depiction of the night sky over a quiet town.",
-  //     releaseDate: new Date(1889, 6, 1)
-  //   },
-  //   {
-  //     id: "1",
-  //     imageUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     thumbnailUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     title: "Starry Night",
-  //     artist: "Vincent van Gogh",
-  //     overview: "A swirling depiction of the night sky over a quiet town.",
-  //     releaseDate: new Date(1889, 6, 1)
-  //   },
-  //   {
-  //     id: "1",
-  //     imageUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     thumbnailUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     title: "Starry Night",
-  //     artist: "Vincent van Gogh",
-  //     overview: "A swirling depiction of the night sky over a quiet town.",
-  //     releaseDate: new Date(1889, 6, 1)
-  //   },
-  //   {
-  //     id: "1",
-  //     imageUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     thumbnailUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     title: "Starry Night",
-  //     artist: "Vincent van Gogh",
-  //     overview: "A swirling depiction of the night sky over a quiet town.",
-  //     releaseDate: new Date(1889, 6, 1)
-  //   },
-  //   {
-  //     id: "1",
-  //     imageUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     thumbnailUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     title: "Starry Night",
-  //     artist: "Vincent van Gogh",
-  //     overview: "A swirling depiction of the night sky over a quiet town.",
-  //     releaseDate: new Date(1889, 6, 1)
-  //   },
-  //   {
-  //     id: "1",
-  //     imageUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     thumbnailUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     title: "Starry Night",
-  //     artist: "Vincent van Gogh",
-  //     overview: "A swirling depiction of the night sky over a quiet town.",
-  //     releaseDate: new Date(1889, 6, 1)
-  //   },
-  //   {
-  //     id: "1",
-  //     imageUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     thumbnailUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     title: "Starry Night",
-  //     artist: "Vincent van Gogh",
-  //     overview: "A swirling depiction of the night sky over a quiet town.",
-  //     releaseDate: new Date(1889, 6, 1)
-  //   },
-  //   {
-  //     id: "1",
-  //     imageUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     thumbnailUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     title: "Starry Night",
-  //     artist: "Vincent van Gogh",
-  //     overview: "A swirling depiction of the night sky over a quiet town.",
-  //     releaseDate: new Date(1889, 6, 1)
-  //   },
-  //   {
-  //     id: "1",
-  //     imageUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     thumbnailUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     title: "Starry Night",
-  //     artist: "Vincent van Gogh",
-  //     overview: "A swirling depiction of the night sky over a quiet town.",
-  //     releaseDate: new Date(1889, 6, 1)
-  //   },
-  //   {
-  //     id: "1",
-  //     imageUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     thumbnailUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     title: "Starry Night",
-  //     artist: "Vincent van Gogh",
-  //     overview: "A swirling depiction of the night sky over a quiet town.",
-  //     releaseDate: new Date(1889, 6, 1)
-  //   },
-  //   {
-  //     id: "1",
-  //     imageUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     thumbnailUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     title: "Starry Night",
-  //     artist: "Vincent van Gogh",
-  //     overview: "A swirling depiction of the night sky over a quiet town.",
-  //     releaseDate: new Date(1889, 6, 1)
-  //   },
-  //   {
-  //     id: "1",
-  //     imageUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     thumbnailUrl: "https://www.museoreinasofia.es/sites/default/files/obras/DE00050_0.jpg",
-  //     title: "Starry Night",
-  //     artist: "Vincent van Gogh",
-  //     overview: "A swirling depiction of the night sky over a quiet town.",
-  //     releaseDate: new Date(1889, 6, 1)
-  //   },
-  // ]
 
   artworks: any[] = [];
+  filteredArtworks: any[] = [];
   selectedArtwork?: IArtInfo;
   sidebarVisible: boolean = false;
+
+  @ViewChild(FilterModalComponent) filterModal?: FilterModalComponent;
+
+
+
+  constructor(
+    private artSvc: ApiArtService
+  ) {}
 
   openDetails(artwork: any) {
     this.selectedArtwork = {
@@ -170,14 +43,33 @@ export class GalleryListComponent {
   }
 
 
-
-  constructor(
-    private artSvc: ApiArtService
-  ) {}
-
   ngOnInit(): void {
     this.artSvc.getArtworks().subscribe(data => {
       this.artworks = data;
+      this.filteredArtworks = data;
+    });
+  }
+  openFilterModal(): void {
+    this.filterModal?.showDialog();
+  }
+
+  applyFilters(filterCriteria: any): void {
+    this.filteredArtworks = this.artworks.filter(artwork => {
+      let matches = true;
+      if (filterCriteria.title) {
+        matches = matches && artwork.object.title.toLowerCase().includes(filterCriteria.title.toLowerCase());
+      }
+      if (filterCriteria.artist) {
+        matches = matches && artwork.object.attribution.toLowerCase().includes(filterCriteria.artist.toLowerCase());
+      }
+      if (filterCriteria.classification) {
+        matches = matches && artwork.object.classification.toLowerCase().includes(filterCriteria.classification.toLowerCase());
+      }
+      if (filterCriteria.yearRange) {
+        const [startYear, endYear] = filterCriteria.yearRange.split('-').map(Number);
+        matches = matches && artwork.object.beginyear >= startYear && artwork.object.endyear <= endYear;
+      }
+      return matches;
     });
   }
 }

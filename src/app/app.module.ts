@@ -12,7 +12,12 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { ApiArtService } from './api-art.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SidebarModule } from 'primeng/sidebar';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
 import { NgxMasonryModule } from 'ngx-masonry';
+import { FilterModalComponent } from './filter-modal/filter-modal.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +26,8 @@ import { NgxMasonryModule } from 'ngx-masonry';
     ArtViewComponent,
     ArtDetailComponent,
     HeaderComponent,
-    HomepageComponent
+    HomepageComponent,
+    FilterModalComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +35,12 @@ import { NgxMasonryModule } from 'ngx-masonry';
     BrowserAnimationsModule,
     HttpClientModule,
     SidebarModule,
-    NgxMasonryModule
+    NgxMasonryModule,
+    DialogModule,
+    ButtonModule,
+    InputTextModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     ApiArtService
