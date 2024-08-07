@@ -11,8 +11,22 @@
   </div>
 </div> -->
 
-<div class="container mt-4">
-  <button pButton type="button" label="Filter Artworks" icon="pi pi-filter" class="mb-4" (click)="openFilterModal()"></button>
+<div class="container mt-4 col-md-12">
+    <div class="row mb-4 align-items-center filter-container">
+        <div class="col-md-8">
+            <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search Artworks" [(ngModel)]="searchQuery" (keydown.enter)="searchArtworks()">
+            <button class="btn btn-outline-secondary" type="button" (click)="searchArtworks()">
+                <i class="pi pi-search"></i>
+            </button>
+            </div>
+
+        </div>
+        <div class="col-md-4 text-right">
+            <button pButton type="button" label="Filter Artworks" icon="pi pi-filter" class="btn btn-primary"
+                    (click)="openFilterModal()"></button>
+        </div>
+    </div>
   <ngx-masonry>
     <div ngxMasonryItem *ngFor="let artwork of filteredArtworks" (click)="openDetails(artwork)">
       <div class="art-tile">

@@ -15,6 +15,8 @@ export class GalleryListComponent {
   filteredArtworks: any[] = [];
   selectedArtwork?: IArtInfo;
   sidebarVisible: boolean = false;
+  searchQuery: string = '';
+
 
   @ViewChild(FilterModalComponent) filterModal?: FilterModalComponent;
 
@@ -41,6 +43,31 @@ export class GalleryListComponent {
     this.selectedArtwork = undefined;
     this.sidebarVisible = false;
   }
+
+  searchArtworks() {
+
+    if (!this.searchQuery || this.searchQuery.trim() === '') {
+      return;
+    }
+    let query = this.searchQuery.toLowerCase();
+
+
+    let localStorageItem = localStorage.getItem('searchHistory');
+    let searchHistory: string[] = localStorageItem ? JSON.parse(localStorageItem) : [];
+
+    if (!searchHistory.includes(query)) {
+      searchHistory.push(query);
+      localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+    }
+
+  }
+
+
+
+
+
+
+
 
 
   ngOnInit(): void {
